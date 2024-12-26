@@ -34,13 +34,15 @@ const projects = (await getCollection("work"))
       <header class="hero">
         <Hero
           title=`Hello, my name is ${fullName}`
-          tagline=`I am a Creative Developer who is currently based in ${state}, ${country}.`
+          tagline=`I am a Full Stack Developer currently based in ${state}, ${country}.`
           align="start"
         >
           <div class="roles">
             <Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-            <Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-            <Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+            <Pill
+              ><Icon icon="microphone-stage" size="1.33em" /> Tech Enthusiast</Pill
+            >
+            <Pill><Icon icon="pencil-line" size="1.33em" /> Technical Generalist</Pill>
           </div>
         </Hero>
 
@@ -55,7 +57,7 @@ const projects = (await getCollection("work"))
       <Skills />
     </div>
 
-    <main class="wrapper stack gap-20 lg:gap-48">
+    <!--  <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
         <header class="section-header stack gap-2 lg:gap-4">
           <h3>Selected Work</h3>
@@ -114,7 +116,7 @@ const projects = (await getCollection("work"))
         </div>
       </section>*/
       }
-    </main>
+    </main> -->
 
     <ContactCTA />
   </div>
