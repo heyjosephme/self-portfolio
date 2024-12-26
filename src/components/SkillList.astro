@@ -1,0 +1,51 @@
+---
+interface Skill {
+  name: string;
+  items: string[];
+}
+
+interface Props {
+  skills: Skill[];
+}
+
+const { skills } = Astro.props;
+---
+
+<div class="skill-list">
+  {
+    skills.map((category) => (
+      <div class="skill-category">
+        <h3>{category.name}</h3>
+        <ul>
+          {category.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .skill-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .skill-category {
+    margin-bottom: 1rem;
+  }
+  .skill-category h3 {
+    color: var(--gray-0);
+    font-size: var(--text-lg);
+    margin-bottom: 0.5rem;
+  }
+  .skill-category ul {
+    list-style: none;
+    padding: 0;
+  }
+  .skill-category li {
+    color: var(--gray-200);
+    margin-bottom: 0.25rem;
+  }
+</style>

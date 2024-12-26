@@ -3,7 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
+import SkillList from "../components/SkillList.astro";
 import { fullNameWithoutMiddle, fullName } from "../constants/name";
+
+const skills = [
+  {
+    name: "Development",
+    items: ["JavaScript", "TypeScript", "HTML/CSS", "Astro", "Node.js"],
+  },
+  {
+    name: "Tools & Platforms",
+    items: ["Git", "VS Code", "Docker", "AWS/Vercel"],
+  },
+  {
+    name: "Soft Skills",
+    items: ["Problem Solving", "Team Collaboration", "Technical Writing"],
+  },
+];
 ---
 
 <BaseLayout
@@ -16,12 +32,12 @@ import { fullNameWithoutMiddle, fullName } from "../constants/name";
         title="About"
         tagline="Thanks for stopping by. Read below to learn more about myself and my background."
       >
-        <img
+        <!-- <img
           width="1553"
           height="873"
           src="/assets/at-work.jpg"
           alt="ryo zaki anine White at work with a colleague"
-        />
+        /> -->
       </Hero>
 
       <section>
@@ -60,7 +76,7 @@ import { fullNameWithoutMiddle, fullName } from "../constants/name";
       <section>
         <h2 class="section-title">Skills</h2>
         <div class="content">
-          <p>officia unde omnis</p>
+          <SkillList skills={skills} />
         </div>
       </section>
     </main>
