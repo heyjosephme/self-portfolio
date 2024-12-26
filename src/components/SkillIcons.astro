@@ -1,0 +1,84 @@
+---
+import type { SimpleIcon } from "simple-icons";
+import * as SimpleIcons from "simple-icons";
+
+interface Skill {
+  name: string;
+  icon: string; // icon name from simple-icons
+}
+
+interface Props {
+  skills: Skill[];
+}
+
+const { skills } = Astro.props;
+
+const getIcon = (iconName: string): SimpleIcon => {
+  const normalizedName = iconName;
+  const iconKey =
+    `si${normalizedName.charAt(0).toUpperCase()}${normalizedName.slice(1)}` as keyof typeof SimpleIcons;
+  // const iconKey = iconName as keyof typeof SimpleIcons;
+  console.log("Looking for icon:", iconKey); // Debug log
+  const icon = SimpleIcons[iconKey];
+  if (!icon) {
+    console.log("Icon not found:", iconKey); // Debug log
+  }
+  return icon as SimpleIcon;
+};
+---
+
+<div class="skills-grid">
+  {
+    skills.map(({ name, icon }) => {
+      const iconItem = getIcon(icon);
+      console.log("Icon item:", JSON.stringify(iconItem)); // Debug log
+      return iconItem ? (
+        <div class="skill-item">
+          <svg
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            class="skill-icon"
+            style={`fill: #${iconItem.hex}`}
+          >
+            <title>{iconItem.title}</title>
+            <path d={iconItem.path} />
+          </svg>
+          <span>{name}</span>
+        </div>
+      ) : null;
+    })
+  }
+</div>
+
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-icon {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--gray-200);
+    transition: fill 0.2s ease;
+  }
+
+  .skill-item:hover .skill-icon {
+    fill: var(--gray-0);
+  }
+
+  span {
+    font-size: var(--text-sm);
+    text-align: center;
+  }
+</style>

@@ -3,23 +3,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
-import SkillList from "../components/SkillList.astro";
+/* import SkillList from "../components/SkillList.astro"; */
+import SkillIcons from "../components/SkillIcons.astro";
+
 import { fullNameWithoutMiddle, fullName } from "../constants/name";
 
 const skills = [
-  {
-    name: "Development",
-    items: ["JavaScript", "TypeScript", "HTML/CSS", "Astro", "Node.js"],
-  },
-  {
-    name: "Tools & Platforms",
-    items: ["Git", "VS Code", "Docker", "AWS/Vercel"],
-  },
-  {
-    name: "Soft Skills",
-    items: ["Problem Solving", "Team Collaboration", "Technical Writing"],
-  },
+  { name: "JavaScript", icon: "javascript" },
+  { name: "TypeScript", icon: "typescript" },
+  { name: "React", icon: "react" },
+  { name: "nextjs", icon: "nextdotjs" },
+  { name: "node.js", icon: "nodedotjs" },
+  { name: "express.js", icon: "express" },
+  { name: "flutter", icon: "flutter" },
+  { name: "firebase", icon: "firebase" },
+  { name: "AWS", icon: "amazonwebservices" },
+  /*   { name: "GCP", icon: "googlecloud" }, */
+  { name: "docker", icon: "googlecloud" },
 ];
+
+// NEED TO SEARCH icon on my own
 ---
 
 <BaseLayout
@@ -76,7 +79,7 @@ const skills = [
       <section>
         <h2 class="section-title">Skills</h2>
         <div class="content">
-          <SkillList skills={skills} />
+          <SkillIcons skills={skills} />
         </div>
       </section>
     </main>
