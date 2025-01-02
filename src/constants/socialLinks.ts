@@ -1,17 +1,16 @@
 const metaSocialLinks = {
   x: {
     domain: "x.com",
-    username: "TheJosephJu",
+    username: "heyjosephme",
   },
   github: {
     domain: "github.com",
-    username: "0xj0s3ph",
+    username: "heyjosephme",
   },
 };
 
 export const urls = Object.fromEntries(
   Object.entries(metaSocialLinks).map(([key, value]) => {
     return [key, `https://${value.domain}/${value.username}`];
-  })
+  }),
 );
-
